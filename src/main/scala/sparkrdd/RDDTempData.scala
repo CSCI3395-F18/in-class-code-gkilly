@@ -61,7 +61,7 @@ object RDDTempData extends App {
   //  val maxRainfallInTexas2017
   val randomStation = stationsInTexas.map(_.id).max
   println(randomStation)
-  val maxRainfallInTexas2017 = tempData2017.filter(d => d.id == randomStation && d.element == "PRCP").sortyBy(-_.value).take(5)
+  val maxRainfallInTexas2017 = tempData2017.filter(d => d.id == randomStation && d.element == "PRCP").sortBy(-_.value).take(5)
   maxRainfallInTexas2017.foreach(println)
 
   //#6
@@ -103,7 +103,7 @@ object RDDTempData extends App {
   //println(tempData2017.filter(d => d.id == "CA002401025" && d.element == "TMAX").count)
   //println(tempData2017.filter(d => d.id == "CA002401050" && d.element == "TMAX").count)
 
-/*  var stationTemp = tempData2017.filter(d => d.id == "CA003072655" && d.element == "TMAX").sortBy(d => d.date)
+  var stationTemp = tempData2017.filter(d => d.id == "CA003072655" && d.element == "TMAX").sortBy(d => d.date)
   var time = 1 to 365 toArray//stationTemp.map(_.date-20170000).collect
   var rainfall = stationTemp.map(_.value/10.0).collect
   val chipewyanPlot = Plot.scatterPlot(time, rainfall, "Fort Chipewyan", "Day", "Temperature (degrees Celcius)", symbolSize = 8)
@@ -128,7 +128,7 @@ object RDDTempData extends App {
   rainfall = stationTemp.map(_.value/10.0).collect
   val bjorPlot = Plot.scatterPlot(time, rainfall, "BJOERNOEYA", "Day", "Temperature (degrees Celcius)", symbolSize = 8)
   SwingRenderer(bjorPlot, 800, 800, true)
-*/
+
   println
   println
   println
