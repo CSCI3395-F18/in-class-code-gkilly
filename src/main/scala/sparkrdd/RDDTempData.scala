@@ -42,7 +42,7 @@ object RDDTempData extends App {
   //#1
   val stationsInTexas = stationData.filter(_.name.substring(0,2) == "TX")
   println(stationsInTexas.count)
-
+/*
   //#2
   val activeStationsInTexas2017 = tempData2017.map(_.id).intersection(stationsInTexas.map(_.id))
   println(activeStationsInTexas2017.count)
@@ -52,14 +52,14 @@ object RDDTempData extends App {
   highestTemp2018.foreach(println)
 
   //#4
-/*  val inactiveStations = stationData.count - tempData2017.map(_.id).distinct.count
-    println(inactiveStations)*/
-  val inactiveStations = stationsInTexas.map(_.id).subtract(tempData2017.map(_.id))
-  println(inactiveStations.count)
+  val inactiveStations = stationData.count - tempData2017.map(_.id).distinct.count
+  val inactiveStations2 = stationData.map(_.id).subtract(tempData2017.map(_.id)).count
+  println(inactiveStations)
+  println(inactiveStations2)
 
   //#5
   //  val maxRainfallInTexas2017
-  val randomStation = stationsInTexas.map(_.id).max
+  val randomStation = stationata.map(_.id).max
   println(randomStation)
   val maxRainfallInTexas2017 = tempData2017.filter(d => d.id == randomStation && d.element == "PRCP").sortBy(-_.value).take(5)
   maxRainfallInTexas2017.foreach(println)
@@ -67,25 +67,33 @@ object RDDTempData extends App {
   //#6
   val maxRainfallInIndia2017 = tempData2017.filter(d => d.id.substring(0, 2) == "IN" && d.element == "PRCP").sortBy(-_.value).take(5)
   maxRainfallInIndia2017.foreach(println)
-
+*/
   //#7
   val stationsInSanAntonio = stationData.filter(_.name.contains("TXSANANTONIO"))
   //val stationsNotInSanAntonio = stationData.filter(s => !(s.name.contains("TXSANANTONIO")))
   println(stationsInSanAntonio.count)
 
   //#8
-  val activeStationsInSanAntonio2017 = tempData2017.map(_.id).intersection(stationsInSanAntonio.map(_.id))
-  println(activeStationsInSanAntonio2017.count)
+  val activeStationsInSanAntonio2017 = tempData2017.map(_.id).intersection(stationsInSanAntonio.map(_.id)).collect
+  //println(activeStationsInSanAntonio2017.count)
 
   //#9
-  /*val largestDailyIncreases = tempData2017.filter(d => d.element == "TMAX" && d.element == "TMIN").keyBy(_.id).mapValues { idVals =>
-    val differencesByDate = idVals.groupBy(_.date).mapValues { dateVals =>
-      val maxi = dateVals.map(_.value).max
-      val mini = dateVals.map(_.value).min
+
+  val sanAntonioStations = tempData2017.filter(d => activeStationsInSanAntonio2017.contains(d.id))
+
+  val largestDailyIncreases = sanAntonioStations.groupBy(_.id).mapValues { sameIdData =>
+    val dateDiffs = sameIdData.groupBy(_.date).mapValues { sameDateData =>
+/*      val maxVars = sameDateData.filter(_.element == "TMAX").map(_.value)
+      val maxi = if(maxVars.toArray.size == 0) 0 else maxVars.max
+      val minVars = sameDateData.filter(_.element == "TMIN").map(_.value)
+      val mini = if(maxVars.toArray.size == 0) 0 else maxVars.min
       maxi - mini
     }
-    differencesByDate.sortBy(_._2)
+    val greatestDiff = dateDiffs.toArray.sortBy(-_._2).take(1)
+    greatestDiff(0)._2
   }
+  largestDailyIncreases.collect.sortBy(d => d._2).take(10).foreach(println)*/
+/*
     val tempsFilter = tempData2017./.groupBy(_.id).mapValues { ids =>
       val o = ids.groupBy(_.date).mapValues { data =>
         data.map(_.value).max - data.map(_.value).min
@@ -93,10 +101,6 @@ object RDDTempData extends App {
       o.toSeq.sortyBy(-_._2)
   }
   tempsFilter.take(10).foreach(println)
-  val organizeByStation = tempsFilter.keyBy(_._1).reduceByKey(stationsNotInSanAntonio2017.keyBy(d => d))
-  //val quickFilter= tempData2017.filter(d => activeStationsInSanAntonio2017.collect.contains(d.id)).take(5).foreach(println)
-*/
-//  val largestDailyIncreasesInSanAntonio = largestDailyIncreases.reduceByKey(inactiveStations.keyBy(_.id))
   //#11
   //Inefficent way of finding stations with decent data
   //stationData.filter(_.latitude.toInt == 74).take(10).foreach(println)
@@ -128,7 +132,7 @@ object RDDTempData extends App {
   rainfall = stationTemp.map(_.value/10.0).collect
   val bjorPlot = Plot.scatterPlot(time, rainfall, "BJOERNOEYA", "Day", "Temperature (degrees Celcius)", symbolSize = 8)
   SwingRenderer(bjorPlot, 800, 800, true)
-
+*/
   println
   println
   println

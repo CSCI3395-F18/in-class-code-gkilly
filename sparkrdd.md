@@ -6,7 +6,7 @@
 ##### 3. What is the highest temperature reported anywhere this year? Where was it and when?
 *     89.1 degrees C in Blackwater, WY on September 6th
 ##### 4. How many stations in the stations list haven't reported any data in 2017?
-*     2244 stations
+*     66351 stations
 ##### 5. What is the maximum rainfall for any station in Texas during 2017? What station and when?
 *     932mm by Lukfin Anfelina CO AP(USW00093987) station on August 27th.
 ##### 6. What is the maximum rainfall for any station in India during 2017? What station and when?
