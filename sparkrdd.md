@@ -21,12 +21,12 @@
       -0.0783 or 7.83%
 ##### 11. Make a plot of temperatures over time for five different stations, each separated by at least 10 degrees in latitude. Make sure you tell me which stations you are using.
 ---
-![Number 9a](project/images/alPlot (1).png)
+![Number 9a](project/images/alPlot.png)
 ---
-![Number 9b](project/images/bjorPlot (1).png)
+![Number 9b](project/images/bjorPlot.png)
 ---
-![Number 9c](project/images/qioPlot (1).png)
+![Number 9c](project/images/qioPlot.png)
 ---
-![Number 9d](project/images/savePlot (1).png)  
+![Number 9d](project/images/savePlot.png)  
 ---
 ![Number 9d](project/images/fortPlot.png)
