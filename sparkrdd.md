@@ -16,9 +16,9 @@
 ##### 8. How many of those have reported temperature data in 2017?
 *     12 stations
 ##### 9. What is the largest daily increase in high temp for San Antonio in this data file?
-      105.0 degrees C  (Most likely an error in data or my inputting of it.) Second highest was 25.0 degrees Celcius.
+*     105.0 degrees C  (Most likely an error in data or my inputting of it.) Second highest was 25.0 degrees Celcius.
 ##### 10. What is the correlation coefficient between high temperatures and rainfall for San Antonio? Note that you can only use values from the same date and station for the correlation.
-      -0.0783 or 7.83%
+*     -0.0783 or 7.83%
 ##### 11. Make a plot of temperatures over time for five different stations, each separated by at least 10 degrees in latitude. Make sure you tell me which stations you are using.
 ---
 ![Number 9a](project/images/alPlot.png)
