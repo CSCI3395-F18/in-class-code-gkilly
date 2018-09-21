@@ -73,8 +73,9 @@ object RDDTempData extends App {
   println(stationsInSanAntonio.count)
 
   //#8
+  val activeTempStationsInSanAntonio2017 = tempData2017.filter(td => td.element == "TMAX" || td.element == "TMIN").map(_.id).intersection(stationsInSanAntonio.map(_.id))
   val activeStationsInSanAntonio2017 = tempData2017.map(_.id).intersection(stationsInSanAntonio.map(_.id)).collect
-  //println(activeStationsInSanAntonio2017.count)
+  println(activeTempStationsInSanAntonio2017.count)
 
   //#9
 

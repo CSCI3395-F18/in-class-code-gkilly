@@ -14,7 +14,7 @@
 ##### 7. How many weather stations are there associated with San Antonio, TX?
 *     29 stations
 ##### 8. How many of those have reported temperature data in 2017?
-*     12 stations
+*     3 stations
 ##### 9. What is the largest daily increase in high temp for San Antonio in this data file?
 *     105.0 degrees C  (Most likely an error in data or my inputting of it.) Second highest was 25.0 degrees Celcius.
 ##### 10. What is the correlation coefficient between high temperatures and rainfall for San Antonio? Note that you can only use values from the same date and station for the correlation.
